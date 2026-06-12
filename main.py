@@ -47,3 +47,7 @@ def index():
     </html>
     """
     return HTMLResponse(content=html_content, status_code=200)
+
+@app.post("/present")
+async def give_present(present):
+    return {"response": f"これはテストです。 {present}ありがとう。お返しは私からの愛だよ♡。"}  # f文字列というPythonの機能を使っている
