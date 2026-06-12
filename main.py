@@ -31,3 +31,10 @@ def omikuji():
     ]
     
     return {"result" : omikuji_list[random.randrange(10)]}
+
+@app.get("/tasizan")
+def tasizan():
+    number = int(input())
+    number * 2
+
+    return number
