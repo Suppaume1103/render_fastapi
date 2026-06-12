@@ -2,6 +2,8 @@ from typing import Optional
 
 from fastapi import FastAPI
 
+from fastapi.responses import HTMLResponse
+
 import random  # randomライブラリを追加
 
 app = FastAPI()
@@ -31,3 +33,17 @@ def omikuji():
     ]
     
     return {"result" : omikuji_list[random.randrange(10)]}
+
+@app.get("/index")
+def index():
+    html_content = """
+    <html>
+        <head>
+            <title>24FI014 Test</title>
+        </head>
+        <body>
+            <h1>こんにちは！これはデプロイのテストだお!</h1>
+        </body>
+    </html>
+    """
+    return HTMLResponse(content=html_content, status_code=200)
